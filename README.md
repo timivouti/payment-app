@@ -10,4 +10,4 @@ Installation:
 
 ![alt text](https://i.imgur.com/RourhpV.png "Eka")
 ![alt text](https://i.imgur.com/h64t0sA.png "Toka")
-![alt text](https://i.imgur.com/4ZdvT0f.png "Toka")
+![alt text](https://i.imgur.com/vpmaOdm.png "Kolmas")
