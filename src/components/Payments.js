@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection } from './common';
 import { fetchPayments, fetchPeople, paymentSelected } from '../actions';
@@ -7,10 +7,6 @@ import { fetchPayments, fetchPeople, paymentSelected } from '../actions';
 class Payments extends Component {
   componentDidMount() {
     this.props.fetchPeople();
-    this.props.fetchPayments();
-  }
-
-  componentWillReceiveProps() {
     this.props.fetchPayments();
   }
 
@@ -65,10 +61,12 @@ class Payments extends Component {
 
   render() {
     return (
-      <Card>
-        {this.props.payments.map(payment =>
-        this.renderPayments(payment, this.props.people))}
-      </Card>
+      <ScrollView>
+        <Card>
+          {this.props.payments.map(payment =>
+            this.renderPayments(payment, this.props.people))}
+        </Card>
+      </ScrollView>
     );
   }
 }

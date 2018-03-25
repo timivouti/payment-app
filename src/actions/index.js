@@ -7,6 +7,8 @@ export const SELECTED_PAYMENT = 'selected_payment';
 export const UPDATE_PAYMENT = 'update_payment';
 export const PAYMENT_ERROR = 'payment_error';
 export const NEWPAYMENT_SUCCESS = 'newpayment_success';
+export const UPDATE_NUMBER = 'update_number';
+export const UPDATE_NAME = 'update_name';
 
 const PAYMENTS_URL = 'https://peaceful-stream-34212.herokuapp.com/transactions';
 const PEOPLE_URL = 'https://peaceful-stream-34212.herokuapp.com/persons';
@@ -54,6 +56,20 @@ export const paymentUpdate = ({ prop, value }) => {
   };
 };
 
+export const paymentNumberUpdate = ({ value }) => {
+  return {
+    type: UPDATE_NUMBER,
+    payload: value
+  };
+};
+
+export const paymentNameUpdate = ({ value }) => {
+  return {
+    type: UPDATE_NAME,
+    payload: value
+  };
+};
+
 export const newPaymentError = ({ prop, value }) => {
   return {
     type: PAYMENT_ERROR,
@@ -69,8 +85,7 @@ export const newPaymentSubmit = ({ receiver, amount }) => {
     })
     .catch(err => console.log(err))
     .then(() => newPaymentSuccess(dispatch))
-      .then(() => Actions.pop())
-        .then(() => Actions.refresh({ refresh: true }));
+      .then(() => Actions.payments({ type: 'reset' }));
   };
 };
 
